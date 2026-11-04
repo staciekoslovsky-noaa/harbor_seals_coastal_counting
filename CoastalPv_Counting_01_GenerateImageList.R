@@ -46,6 +46,8 @@ to_be_counted <- RPostgres::dbGetQuery(
   )
 )
 
+to_be_counted$source_file <- paste0("P://", to_be_counted$source_file)
+
 # Insert records into tbl_image_count
 images <- basename(to_be_counted$source_file)
 for (i in 1:length(images)) {
